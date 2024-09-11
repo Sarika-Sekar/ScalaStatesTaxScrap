@@ -8,7 +8,7 @@ object MississippiTax extends App with ScoupImplicits {
   val url = Scoup.get("https://www.dor.ms.gov/business/tax-notices/sales-and-use-tax-notices")
   val waitUrl = Await.result(url,Duration.Inf)
   val parseUrl = Scoup.parseHTML(waitUrl)
-  val content = parseUrl.select("tbody tr td a")
+  val content = parseUrl.select("tbody tr td a").toList
   println(content)
 
 }
